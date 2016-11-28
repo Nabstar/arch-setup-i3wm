@@ -80,7 +80,7 @@ pacman -S --noconfirm eclipse-java
 pacman -S --noconfirm gimp
 pacman -S --noconfirm gparted dosfstools ntfs-3g
 pacman -S --noconfirm pcmanfm-gtk3 gvfs udisks
-pacman -S --noconfirm file-roller unrar p7zip
+pacman -S --noconfirm file-roller unrar p7zip lrzip
 pacman -S --noconfirm gutenprint ghostscript gsfonts
 pacman -S --noconfirm system-config-printer gtk3-print-backends simple-scan
 pacman -S --noconfirm gpicview
