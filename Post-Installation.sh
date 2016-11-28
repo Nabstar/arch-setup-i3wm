@@ -13,17 +13,23 @@ pacman -Syyu
 pacman -S linux-headers
 
 # Install important services
-pacman -S --noconfirm acpid ntp dbus avahi cups cronie ufw tlp
+pacman -S --noconfirm acpid ntp cronie avahi dbus cups ufw tlp
 
 # Enable important services
 systemctl enable acpid
 systemctl enable ntpd
 systemctl enable cronie
 systemctl enable avahi-daemon
-systemctl enable ufw
+
+# Enable TLP
 systemctl enable tlp.service
 systemctl enable tlp-sleep.service
 systemctl disable systemd-rfkill.service
+
+# Enable UFW
+systemctl enable ufw
+ufw default deny
+ufw enable
 
 # Configure the network
 pacman -S --noconfirm wicd-gtk dialog
@@ -50,7 +56,7 @@ pacman -S --noconfirm feh
 pacman -S --noconfirm openvpn easy-rsa
 
 # Install xorg and graphics
-pacman -S --noconfirm xorg xorg-xinit mesa xf86-video-intel
+pacman -S --noconfirm xorg xorg-xinit mesa
 
 # Install fonts
 pacman -S --noconfirm ttf-dejavu
