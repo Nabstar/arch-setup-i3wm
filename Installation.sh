@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Installation
+# Installation
 
 # Set the hostname
 read -p "Set hostname: " hostName
@@ -40,4 +40,4 @@ echo "options root=/dev/sda2 rw" >> /boot/loader/entries/arch.conf
 echo "default arch" > /boot/loader/loader.conf
 
 # Exit the chroot environment and reboot (optionaly add: umount -R /mnt)
-echo "1. exit | 2. umount -R /mnt | 3. reboot | 4. Execute Arch-Post-Installation.sh"
+echo "1. exit | 2. umount -R /mnt | 3. reboot | 4. Execute Post-Installation.sh"

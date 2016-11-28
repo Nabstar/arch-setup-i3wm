@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Post-Installation
+# Post-Installation
 
 # Create user and set password
 read -p "Set user name:" userName
@@ -9,7 +9,7 @@ echo "Set user password:"
 passwd $userName
 
 # Header files and scripts for building modules for Linux kernel
-pacman -Syy
+pacman -Syyu
 pacman -S linux-headers
 
 # Install important services
@@ -50,10 +50,7 @@ pacman -S --noconfirm feh
 pacman -S --noconfirm openvpn easy-rsa
 
 # Install xorg and graphics
-pacman -S --noconfirm xorg xorg-xinit mesa
-
-# Install driver
-pacman -S --noconfirm xf86-video-intel
+pacman -S --noconfirm xorg xorg-xinit mesa xf86-video-intel
 
 # Install fonts
 pacman -S --noconfirm ttf-dejavu
@@ -110,7 +107,8 @@ chown $userName -R /home/$userName/
 chmod -R 700 /home/$userName/.bin/
 
 # Remove installation files
-rm -R 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+rm -R $DIR
 
 # Finish
 echo "Installation finished!!!"

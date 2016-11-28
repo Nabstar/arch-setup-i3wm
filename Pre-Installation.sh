@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Pre-Installation
+# Pre-Installation
 
 # Connect to the Internet
 # wifi-menu
@@ -35,9 +35,10 @@ pacstrap -i /mnt base base-devel
 # Configure the system
 genfstab -U /mnt > /mnt/etc/fstab
 
-# Copy the scripts to the new system
-cp -R ~/Installation/ /mnt/
+# Copy the setup folder to the new system
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cp -R $DIR /mnt/
 
 # Change root into the new system and start second Script
-echo "Execute Arch-Installation.sh"
+echo "Execute Installation.sh"
 arch-chroot /mnt /bin/bash
