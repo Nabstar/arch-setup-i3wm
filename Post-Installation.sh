@@ -26,7 +26,7 @@ systemctl enable tlp-sleep.service
 systemctl disable systemd-rfkill.service
 
 # Configure the network
-pacman -S wicd-gtk dialog
+pacman -S --noconfirm wicd-gtk dialog
 systemctl enable wicd
 
 # Install command line and ncurses programs
