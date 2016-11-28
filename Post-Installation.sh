@@ -41,7 +41,7 @@ pacman -S --noconfirm bash-completion
 pacman -S --noconfirm pulseaudio pulseaudio-alsa
 pacman -S --noconfirm htop
 pacman -S --noconfirm screen
-pacman -S --noconfirm wget axel youtube-dl
+pacman -S --noconfirm wget curl axel youtube-dl
 pacman -S --noconfirm scrot
 pacman -S --noconfirm xdotool
 pacman -S --noconfirm xclip xsel
