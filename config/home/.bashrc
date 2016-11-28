@@ -11,4 +11,4 @@ alias ls='ls --color=auto'
 alias vim='vim -u NONE'
 
 cdd() { cd "$@" && ls -all; }
-fehbg() { feh --bg-fill $(xsel -b); }
+fehbg() { feh --bg-fill "$(xsel -b)"; }
