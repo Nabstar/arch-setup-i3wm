@@ -91,7 +91,7 @@ sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 echo "$userName ALL = NOPASSWD: /usr/bin/shutdown" >> /etc/sudoers
 
 # Add Cron job
-{ crontab -l -u $userName; echo '*/5 * * * * env DISPLAY=:0  /home/$userName/.bin/BatteryWarning.sh'; } | crontab -u $userName -
+{ crontab -l -u $userName; echo "*/5 * * * * env DISPLAY=:0  /home/$userName/.bin/BatteryWarning.sh"; } | crontab -u $userName -
 
 # Configure Keyboardlayout
 localectl set-x11-keymap de pc105 nodeadkeys
