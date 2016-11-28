@@ -109,7 +109,7 @@ cp ./config/50-synaptics.conf /etc/X11/xorg.conf.d/
 cp -R ./config/home/. /home/$userName/
 
 # Change premissions
-chown $userName -R /home/$userName/
+chown $userName:users -R /home/$userName/
 chmod -R 700 /home/$userName/.bin/
 
 # Remove installation files
