@@ -1,5 +1,5 @@
 #!/bin/bash
-# */5 * * * * env DISPLAY=:0  /home/$USER/batteryWarning.sh
+# */5 * * * * env DISPLAY=:0  /home/$USER/.bin/BatteryWarning.sh
 
 BATTINFO=`acpi -b`
 if [[ `echo $BATTINFO | grep Discharging` && `echo $BATTINFO | awk -F', ' '{print $2+0}'` -le "15" ]] ; then

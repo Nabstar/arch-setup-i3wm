@@ -151,16 +151,36 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# Define colors used
+set $bg-color 	         #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #5294e2
+
+# Windows         Border    Background    Text     Indicator
+client.focused    #686767   #686767       #ffffff
+client.unfocused  #2f343f   #2f343f       #ffffff
+
 bar {
-        status_command i3status
+	status_command i3status
+	colors {
+		background	$bg-color
+		separator	#757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
 }
 
+# Own shortcuts
 # Inc Dec Mute Music
 bindsym XF86AudioRaiseVolume exec ~/.bin/IncDecSound.sh
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym $mod+Control+Up exec ~/.bin/IncDecSound.sh
-bindsym $mod+Control+Down exec pactl set-sink-volume 1 -5%
+bindsym $mod+Control+Down exec pactl set-sink-volume 0 -5%
 # XF86MonBrightnessDown
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 # XF86MonBrightnessUp
@@ -172,4 +192,7 @@ bindsym $mod+F5 exec xset -dpms s off
 # Enable DPMS and screen blanking
 bindsym $mod+Shift+F5 exec xset +dpms s on
 # Shutdown or Reboot PC
-bindsym $mod+q exec ~/.bin/ShutdownReboot.sh
+bindsym $mod+q exec ~/.bin/ShutdownRebootLock.sh
+
+# Autostarted applications
+exec --no-startup-id nm-applet

@@ -32,12 +32,16 @@ ufw default deny
 ufw enable
 
 # Configure the network
-pacman -S --noconfirm wicd-gtk dialog
-systemctl enable wicd
+pacman -S --noconfirm dialog dhclient 
+pacman -S --noconfirm networkmanager network-manager-applet
+pacman -S --noconfirm gnome-keyring libsecret seahorse
+systemctl enable NetworkManager.service
 
 # Install command line and ncurses programs
 pacman -S --noconfirm sudo
 pacman -S --noconfirm bash-completion
+pacman -S --noconfirm tree
+pacman -S --noconfirm ranger w3m
 pacman -S --noconfirm pulseaudio pulseaudio-alsa
 pacman -S --noconfirm htop
 pacman -S --noconfirm screen
@@ -57,19 +61,20 @@ pacman -S --noconfirm openvpn easy-rsa
 
 # Install xorg and graphics
 pacman -S --noconfirm xorg xorg-xinit mesa
+pacman -S --noconfirm xf86-video-intel xf86-input-synaptics
 
 # Install fonts
 pacman -S --noconfirm ttf-dejavu
 
 # Install desktop & window manager
-pacman -S --noconfirm i3-wm i3status dmenu
+pacman -S --noconfirm i3-wm i3status i3lock dmenu
 
 # Install graphical programs
 pacman -S --noconfirm rxvt-unicode
 pacman -S --noconfirm zenity
 pacman -S --noconfirm pavucontrol
 pacman -S --noconfirm gnome-system-monitor
-pacman -S --noconfirm arandr
+pacman -S --noconfirm lxrandr
 pacman -S --noconfirm firefox
 pacman -S --noconfirm gnome-calculator
 pacman -S --noconfirm libreoffice-fresh hunspell-de
@@ -79,7 +84,7 @@ pacman -S --noconfirm geany
 pacman -S --noconfirm eclipse-java
 pacman -S --noconfirm gimp
 pacman -S --noconfirm gparted dosfstools ntfs-3g
-pacman -S --noconfirm pcmanfm-gtk3 gvfs udisks
+pacman -S --noconfirm pcmanfm-gtk3 gvfs udisks2
 pacman -S --noconfirm file-roller unrar p7zip lrzip
 pacman -S --noconfirm gutenprint ghostscript gsfonts
 pacman -S --noconfirm system-config-printer gtk3-print-backends simple-scan
@@ -89,6 +94,9 @@ pacman -S --noconfirm virtualbox virtualbox-host-modules-arch virtualbox-guest-i
 
 # Add User-"user" to VirtualBox-Group
 gpasswd -a $userName vboxusers
+
+# java
+echo "_JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'" >> /etc/environment
 
 # Configure sudo
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
