@@ -69,6 +69,9 @@ pacman -S --noconfirm ttf-dejavu
 # Install desktop & window manager
 pacman -S --noconfirm i3-wm i3status i3lock dmenu
 
+# Install GTK-Theme and Icons
+pacman -S --noconfirm arc-gtk-theme arc-icon-theme
+
 # Install graphical programs
 pacman -S --noconfirm rxvt-unicode
 pacman -S --noconfirm zenity
