@@ -72,6 +72,7 @@ pacman -S --noconfirm i3-wm i3status i3lock dmenu
 # Install graphical programs
 pacman -S --noconfirm rxvt-unicode
 pacman -S --noconfirm zenity
+pacman -S --noconfirm lxappearance
 pacman -S --noconfirm pavucontrol
 pacman -S --noconfirm gnome-system-monitor
 pacman -S --noconfirm lxrandr
@@ -81,7 +82,7 @@ pacman -S --noconfirm libreoffice-fresh hunspell-de
 pacman -S --noconfirm evince
 pacman -S --noconfirm smplayer
 pacman -S --noconfirm geany
-pacman -S --noconfirm eclipse-java
+pacman -S --noconfirm eclipse-java gradle
 pacman -S --noconfirm gimp
 pacman -S --noconfirm gparted dosfstools ntfs-3g
 pacman -S --noconfirm pcmanfm-gtk3 gvfs udisks2
